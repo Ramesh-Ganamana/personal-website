@@ -1,0 +1,17 @@
+{
+  "name": "ramesh-ganamana-personal-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ramesh Ganamana's professional portfolio, ready for Firebase Hosting.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node serve.mjs",
+    "dev": "node serve.mjs",
+    "check": "node scripts/check-site.mjs",
+    "prepare:hosting": "node scripts/prepare-hosting.mjs",
+    "deploy": "firebase deploy --only hosting"
+  }
+}
