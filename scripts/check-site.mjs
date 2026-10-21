@@ -29,8 +29,10 @@ for (const match of html.matchAll(/\b(?:src|href)="([^"]+)"/g)) {
   localReferences++;
 }
 
-const app = await readFile(resolve(publicRoot, 'app.js'), 'utf8');
-new Script(app, { filename: 'app.js' });
+for (const match of html.matchAll(/<script\b[^>]*src="([^"?#]+\.js)"/g)) {
+  const source = await readFile(resolve(publicRoot, match[1]), 'utf8');
+  new Script(source, { filename: match[1] });
+}
 JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
 assert.equal((await readFile(resolve(publicRoot, 'Ramesh-Ganamana-Resume.pdf'))).subarray(0, 5).toString(), '%PDF-');
 assert.ok((await stat(resolve(publicRoot, 'ramesh-ganamana.jpg'))).size > 0, 'Portrait is missing.');

@@ -7,6 +7,9 @@ The complete professional portfolio for Ramesh Ganamana, Automation Engineer and
 - The existing design, responsive layout, uppercase RG branding, and supplied portrait.
 - Professional background, four automation case studies, and three AI agents in development.
 - Project filters, case-study dialogs, the workflow illustration switch, and mobile navigation.
+- A user-triggered workflow demo (clearly labelled as a concept, not real execution), subtle pointer/scroll effects, active navigation, and a reading-progress indicator.
+- Client-oriented capability cards and contact-topic buttons that prepare email/WhatsApp messages without sending anything.
+- A persistent motion-pause control and automatic respect for the device's reduced-motion preference. Reading content remains visible without animation or JavaScript.
 - The original downloadable résumé.
 - Email and WhatsApp contact options with copy buttons. The number is designated for WhatsApp only.
 - All CSS, JavaScript, SVG illustrations, image, and PDF assets in `dist/`.
@@ -63,6 +66,7 @@ Run `npm run prepare:hosting` to update the sharing metadata locally. The `SITE_
 | `dist/index.html` | Profile, contact details, project cards, and page content |
 | `dist/styles.css` | Design and responsive layout |
 | `dist/app.js` | Case-study content and interactive behavior |
+| `dist/experience.js` | Optional motion, workflow demo, reading position, and contact topics |
 | `dist/ramesh-ganamana.jpg` | Supplied portrait |
 | `dist/Ramesh-Ganamana-Resume.pdf` | Downloadable résumé |
 | `dist/favicon.svg`, `dist/social.svg` | RG branding and sharing artwork |
@@ -72,7 +76,7 @@ Run `npm run prepare:hosting` to update the sharing metadata locally. The `SITE_
 
 Navigation uses section anchors, so no server-side routes or SPA rewrites are required. Asset URLs are relative. The website has no dependency on the old private hosting origin, deployment credentials, or its access configuration.
 
-After changing content, run `npm run check`, preview it, commit your changes, and run the Firebase deployment command again. Keep the metadata changes from deployment when committing updates.
+After changing content, run `npm run check` and `npm test`, preview it, commit your changes, and run the Firebase deployment command again. Keep the metadata changes from deployment when committing updates. The dependency-free interaction tests cover demo completion/cancellation, reduced motion, unavailable storage, and contact-topic link preparation; responsive layout and keyboard focus also need real-browser checks.
 
 ## Content notes
 
